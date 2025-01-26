@@ -1,5 +1,4 @@
 name: TeamWin [TWRP]
-
 on:
   workflow_dispatch:
     inputs:
@@ -23,7 +22,7 @@ on:
       DEVICE_TREE:
         description: 'Custom Recovery Tree' # Your already made Device Tree for TWRP
         required: true
-        default: 'https://github.com/username/repo'
+        default: 'https://github.com/mmry2940/android_device_xreal_X4000/'
       DEVICE_TREE_BRANCH:
         description: 'Custom Recovery Tree Branch' # Your Device Tree Branch, make sure it's right.
         required: true
@@ -39,7 +38,7 @@ on:
       MAKEFILE_NAME:
         description: 'MAKEFILE_NAME (without including .mk, Example: omni_7304F)'
         required: true
-        default: 'omni_'
+        default: 'omni_X4000'
       BUILD_TARGET:
         description: 'Specify your Build Target' # Pick among boot, recovery and vendor_boot
         required: true
@@ -62,7 +61,7 @@ on:
 jobs:
   build:
     name: Build TWRP by ${{ github.actor }}
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     if: github.event.repository.owner.id == github.event.sender.id
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
